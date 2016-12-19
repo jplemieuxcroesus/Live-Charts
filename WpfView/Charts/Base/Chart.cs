@@ -194,7 +194,7 @@ namespace LiveCharts.Wpf.Charts.Base
 
         private static void OnSeriesChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            var chart = (Chart)o;
+            var chart = (Chart) o;
 
             if (chart.Series != null)
             {
@@ -273,7 +273,7 @@ namespace LiveCharts.Wpf.Charts.Base
         /// </summary>
         public ColorsCollection SeriesColors
         {
-            get { return (ColorsCollection)GetValue(SeriesColorsProperty); }
+            get { return (ColorsCollection) GetValue(SeriesColorsProperty); }
             set { SetValue(SeriesColorsProperty, value); }
         }
 
@@ -424,7 +424,7 @@ namespace LiveCharts.Wpf.Charts.Base
         /// </summary>
         public bool Hoverable
         {
-            get { return (bool)GetValue(HoverableProperty); }
+            get { return (bool) GetValue(HoverableProperty); }
             set { SetValue(HoverableProperty, value); }
         }
 
@@ -432,14 +432,14 @@ namespace LiveCharts.Wpf.Charts.Base
         /// The scroll mode property
         /// </summary>
         public static readonly DependencyProperty ScrollModeProperty = DependencyProperty.Register(
-            "ScrollMode", typeof(ScrollMode), typeof(Chart),
+            "ScrollMode", typeof(ScrollMode), typeof(Chart), 
             new PropertyMetadata(ScrollMode.None, ScrollModeOnChanged));
         /// <summary>
         /// Gets or sets chart scroll mode
         /// </summary>
         public ScrollMode ScrollMode
         {
-            get { return (ScrollMode)GetValue(ScrollModeProperty); }
+            get { return (ScrollMode) GetValue(ScrollModeProperty); }
             set { SetValue(ScrollModeProperty, value); }
         }
 
@@ -447,14 +447,14 @@ namespace LiveCharts.Wpf.Charts.Base
         /// The scroll horizontal from property
         /// </summary>
         public static readonly DependencyProperty ScrollHorizontalFromProperty = DependencyProperty.Register(
-            "ScrollHorizontalFrom", typeof(double), typeof(Chart),
+            "ScrollHorizontalFrom", typeof(double), typeof(Chart), 
             new PropertyMetadata(default(double), ScrollLimitOnChanged));
         /// <summary>
         /// Gets or sets the scrolling horizontal start value
         /// </summary>
         public double ScrollHorizontalFrom
         {
-            get { return (double)GetValue(ScrollHorizontalFromProperty); }
+            get { return (double) GetValue(ScrollHorizontalFromProperty); }
             set { SetValue(ScrollHorizontalFromProperty, value); }
         }
 
@@ -462,14 +462,14 @@ namespace LiveCharts.Wpf.Charts.Base
         /// The scroll horizontal to property
         /// </summary>
         public static readonly DependencyProperty ScrollHorizontalToProperty = DependencyProperty.Register(
-            "ScrollHorizontalTo", typeof(double), typeof(Chart),
-            new PropertyMetadata(default(double), ScrollLimitOnChanged));
+            "ScrollHorizontalTo", typeof(double), typeof(Chart), 
+            new PropertyMetadata(default(double),  ScrollLimitOnChanged));
         /// <summary>
         /// Gets or sets the scrolling horizontal end value
         /// </summary>
         public double ScrollHorizontalTo
         {
-            get { return (double)GetValue(ScrollHorizontalToProperty); }
+            get { return (double) GetValue(ScrollHorizontalToProperty); }
             set { SetValue(ScrollHorizontalToProperty, value); }
         }
 
@@ -483,7 +483,7 @@ namespace LiveCharts.Wpf.Charts.Base
         /// </summary>
         public double ScrollVerticalFrom
         {
-            get { return (double)GetValue(ScrollVerticalFromProperty); }
+            get { return (double) GetValue(ScrollVerticalFromProperty); }
             set { SetValue(ScrollVerticalFromProperty, value); }
         }
 
@@ -497,7 +497,7 @@ namespace LiveCharts.Wpf.Charts.Base
         /// </summary>
         public double ScrollVerticalTo
         {
-            get { return (double)GetValue(ScrollVerticalToProperty); }
+            get { return (double) GetValue(ScrollVerticalToProperty); }
             set { SetValue(ScrollVerticalToProperty, value); }
         }
 
@@ -511,7 +511,7 @@ namespace LiveCharts.Wpf.Charts.Base
         /// </summary>
         public Brush ScrollBarFill
         {
-            get { return (Brush)GetValue(ScrollBarFillProperty); }
+            get { return (Brush) GetValue(ScrollBarFillProperty); }
             set { SetValue(ScrollBarFillProperty, value); }
         }
 
@@ -525,7 +525,7 @@ namespace LiveCharts.Wpf.Charts.Base
         /// </summary>
         public double ZoomingSpeed
         {
-            get { return (double)GetValue(ZoomingSpeedProperty); }
+            get { return (double) GetValue(ZoomingSpeedProperty); }
             set { SetValue(ZoomingSpeedProperty, value); }
         }
 
@@ -533,14 +533,14 @@ namespace LiveCharts.Wpf.Charts.Base
         /// The updater state property
         /// </summary>
         public static readonly DependencyProperty UpdaterStateProperty = DependencyProperty.Register(
-            "UpdaterState", typeof(UpdaterState), typeof(Chart),
+            "UpdaterState", typeof(UpdaterState), typeof(Chart), 
             new PropertyMetadata(default(UpdaterState), CallChartUpdater()));
         /// <summary>
         /// Gets or sets chart's updater state
         /// </summary>
         public UpdaterState UpdaterState
         {
-            get { return (UpdaterState)GetValue(UpdaterStateProperty); }
+            get { return (UpdaterState) GetValue(UpdaterStateProperty); }
             set { SetValue(UpdaterStateProperty, value); }
         }
 
@@ -657,7 +657,7 @@ namespace LiveCharts.Wpf.Charts.Base
         /// <param name="element">The element.</param>
         public void AddToView(object element)
         {
-            var wpfElement = (FrameworkElement)element;
+            var wpfElement = (FrameworkElement) element;
             if (wpfElement == null) return;
             Canvas.Children.Add(wpfElement);
         }
@@ -775,7 +775,7 @@ namespace LiveCharts.Wpf.Charts.Base
             //    AxisX.AddRange(DefaultAxes.CleanAxis);
 
             if (AxisX.Count == 0)
-                AxisX.Add(new Axis { Separator = new Separator() });
+                AxisX.Add(new Axis {Separator = new Separator()});
 
             return AxisX.Select(x =>
             {
@@ -803,7 +803,7 @@ namespace LiveCharts.Wpf.Charts.Base
             //    AxisY.AddRange(DefaultAxes.DefaultAxis);
 
             if (AxisY.Count == 0)
-                AxisY.Add(new Axis { Separator = new Separator() });
+                AxisY.Add(new Axis {Separator = new Separator()});
 
             return AxisY.Select(y =>
             {
@@ -836,7 +836,7 @@ namespace LiveCharts.Wpf.Charts.Base
             }
 
             var r = RandomizeStartingColor ? Randomizer.Next(0, Colors.Count) : 0;
-            return Colors[(i + r) % Colors.Count];
+            return Colors[(i + r)%Colors.Count];
         }
         #endregion
 
@@ -892,7 +892,7 @@ namespace LiveCharts.Wpf.Charts.Base
 
             var source = ActualSeries.SelectMany(x => x.ActualValues.GetPoints(x)).ToList();
             var senderPoint = source.FirstOrDefault(x => x.View != null &&
-                                                         Equals(((PointView)x.View).HoverShape, sender));
+                                                         Equals(((PointView) x.View).HoverShape, sender));
 
             if (senderPoint == null) return;
 
@@ -908,7 +908,7 @@ namespace LiveCharts.Wpf.Charts.Base
                     Canvas.SetLeft(DataTooltip, 0d);
                 }
 
-                if (ActiveTooltip != null) ActiveTooltip.Visibility = Visibility.Hidden;
+                if(ActiveTooltip!= null) ActiveTooltip.Visibility = Visibility.Hidden;
                 ActiveTooltip = DataTooltip;
 
                 var lcTooltip = DataTooltip as IChartTooltip;
@@ -918,7 +918,7 @@ namespace LiveCharts.Wpf.Charts.Base
                 if (lcTooltip.SelectionMode == null)
                     lcTooltip.SelectionMode = senderPoint.SeriesView.Model.PreferredSelectionMode;
 
-                var coreModel = ChartFunctions.GetTooltipData(senderPoint, Model, lcTooltip.SelectionMode.Value);
+                var coreModel = ChartFunctions.GetTooltipData(senderPoint, Model,lcTooltip.SelectionMode.Value);
 
                 lcTooltip.Data = new TooltipData
                 {
@@ -930,16 +930,16 @@ namespace LiveCharts.Wpf.Charts.Base
                     {
                         Series = new SeriesViewModel
                         {
-                            PointGeometry = ((Series)x.SeriesView).PointGeometry ??
+                            PointGeometry = ((Series) x.SeriesView).PointGeometry ??
                                             Geometry.Parse("M 0,0.5 h 1,0.5 Z"),
-                            Fill = ((Series)x.SeriesView) is IFondeable &&
+                            Fill = ((Series) x.SeriesView) is IFondeable &&
                                    !(x.SeriesView is IVerticalStackedAreaSeriesView ||
                                      x.SeriesView is IStackedAreaSeriesView)
-                                ? ((IFondeable)x.SeriesView).PointForeround
-                                : ((Series)x.SeriesView).Fill,
-                            Stroke = ((Series)x.SeriesView).Stroke,
-                            StrokeThickness = ((Series)x.SeriesView).StrokeThickness,
-                            Title = ((Series)x.SeriesView).Title,
+                                ? ((IFondeable) x.SeriesView).PointForeround
+                                : ((Series) x.SeriesView).Fill,
+                            Stroke = ((Series) x.SeriesView).Stroke,
+                            StrokeThickness = ((Series) x.SeriesView).StrokeThickness,
+                            Title = ((Series) x.SeriesView).Title,
                         },
                         ChartPoint = x
                     }).ToList()
@@ -952,7 +952,7 @@ namespace LiveCharts.Wpf.Charts.Base
                 location = new Point(Canvas.GetLeft(DrawMargin) + location.X, Canvas.GetTop(DrawMargin) + location.Y);
                 if (lcTooltip.IsWrapped)
                 {
-                    var container = (FrameworkElement)DataTooltip.Parent;
+                    var container = (FrameworkElement) DataTooltip.Parent;
                     var positionTransform = TransformToAncestor(container);
                     var pos = positionTransform.Transform(new Point(0, 0));
 
@@ -963,7 +963,7 @@ namespace LiveCharts.Wpf.Charts.Base
                     if (location.X + DataTooltip.ActualWidth > container.ActualWidth)
                     {
                         var dif = container.ActualWidth - (location.X + DataTooltip.ActualWidth);
-                        dif *= container.ActualWidth / 2 > senderPoint.ChartLocation.X ? 1 : -1;
+                        dif *= container.ActualWidth/2 > senderPoint.ChartLocation.X ? 1 : -1;
                         location.X += dif;
                     }
                 }
@@ -997,7 +997,7 @@ namespace LiveCharts.Wpf.Charts.Base
 
             var source = ActualSeries.SelectMany(x => x.ActualValues.GetPoints(x));
             var senderPoint = source.FirstOrDefault(x => x.View != null &&
-                                                         Equals(((PointView)x.View).HoverShape, sender));
+                                                         Equals(((PointView) x.View).HoverShape, sender));
 
             if (senderPoint == null) return;
 
@@ -1035,11 +1035,11 @@ namespace LiveCharts.Wpf.Charts.Base
                 item.Title = series.Title;
                 item.StrokeThickness = series.StrokeThickness;
                 item.Stroke = series.Stroke;
-                item.Fill = ((Series)t) is IFondeable &&
+                item.Fill = ((Series) t) is IFondeable &&
                             !(t is IVerticalStackedAreaSeriesView ||
                               t is IStackedAreaSeriesView)
-                    ? ((IFondeable)t).PointForeround
-                    : ((Series)t).Fill;
+                    ? ((IFondeable) t).PointForeround
+                    : ((Series) t).Fill;
                 item.PointGeometry = series.PointGeometry ?? Geometry.Parse("M 0,0.5 h 1,0.5 Z");
 
                 l.Add(item);
@@ -1159,10 +1159,10 @@ namespace LiveCharts.Wpf.Charts.Base
                     if (gvt != null) gvt = gvt.MakeGenericType(typeof(ObservableValue));
 
                     var obj = gvt != null
-                        ? (IChartValues)Activator.CreateInstance(gvt)
+                        ? (IChartValues) Activator.CreateInstance(gvt)
                         : new ChartValues<ObservableValue>();
 
-                    obj.Add(new ObservableValue(r.Next(0, 100)));
+                    obj.Add(new ObservableValue(r.Next(0,100)));
                     obj.Add(new ObservableValue(r.Next(0, 100)));
                     obj.Add(new ObservableValue(r.Next(0, 100)));
                     obj.Add(new ObservableValue(r.Next(0, 100)));
@@ -1268,7 +1268,7 @@ namespace LiveCharts.Wpf.Charts.Base
                 ScrollBar = new Rectangle();
 
                 ScrollBar.SetBinding(Shape.FillProperty,
-                    new Binding { Path = new PropertyPath(ScrollBarFillProperty), Source = this });
+                    new Binding {Path = new PropertyPath(ScrollBarFillProperty), Source = this});
 
                 EnsureElementBelongsToCurrentView(ScrollBar);
                 ScrollBar.MouseDown += ScrollBarOnMouseDown;
@@ -1277,9 +1277,9 @@ namespace LiveCharts.Wpf.Charts.Base
             }
 
             ScrollBar.SetBinding(HeightProperty,
-                new Binding { Path = new PropertyPath(ActualHeightProperty), Source = this });
+                new Binding {Path = new PropertyPath(ActualHeightProperty), Source = this});
             ScrollBar.SetBinding(WidthProperty,
-                new Binding { Path = new PropertyPath(ActualWidthProperty), Source = this });
+                new Binding {Path = new PropertyPath(ActualWidthProperty), Source = this});
 
             var f = this.ConvertToPixels(new Point(ScrollHorizontalFrom, ScrollVerticalFrom));
             var t = this.ConvertToPixels(new Point(ScrollHorizontalTo, ScrollVerticalTo));
@@ -1338,7 +1338,7 @@ namespace LiveCharts.Wpf.Charts.Base
 
         private static void ScrollModeOnChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            var wpfChart = (Chart)o;
+            var wpfChart = (Chart) o;
             if (o == null) return;
             wpfChart.PrepareScrolBar();
         }
@@ -1414,7 +1414,7 @@ namespace LiveCharts.Wpf.Charts.Base
 
         private static void UpdateChartFrequency(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            var wpfChart = (Chart)o;
+            var wpfChart = (Chart) o;
 
             var freq = wpfChart.DisableAnimations ? TimeSpan.FromMilliseconds(10) : wpfChart.AnimationsSpeed;
 
